@@ -10,8 +10,8 @@
 
 \title{Mathematics in Deep Learning}
 \author{Lachlan Jones}
-\institute{Math199}
-\date{2024}
+\institute{MATH199}
+\date{2024 Mid-Year Workshop}
 
 \begin{document}
 
@@ -103,7 +103,9 @@
             \caption{Rectified linear unit (ReLU)}
         \end{subfigure}
     \end{figure}
-    There are several reasons why we neural networks require non-linear 
+    \begin{block}{Remark}
+        Deep learning doesn't work with out non-linear activation functions. 
+    \end{block}
 \end{frame}
 
 \begin{frame}
@@ -170,16 +172,21 @@
 
 \begin{frame}
     \frametitle{MLP networks}
-    Typically, architecture is much more complex.
+    Typically, architecture is much more complex, with many hidden layers. This is what \alert{deep} learning is referring to.
     % \vspace{0.5cm}
     \begin{figure}
         \centering
-        \includegraphics[height=0.4\textheight]{./figures/mlp/main.pdf}
-    \end{figure} \pause
+        \includegraphics[height=0.5\textheight]{./figures/mlp/main.pdf}
+        \caption{Example of what a deep NN could look like}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{MLP networks}
     Generally:
     \[\underline{h}_i = f(W_i \cdot \underline{h}_{i - 1} + \underline{b}_i)\]
     \begin{block}{Remark}
-        We can think of the network as a recurrence relation, passing the output of one hidden layer as the input to the next layer.
+        We can think of deep neural networks as a recurrence relation, passing the output of one hidden layer as the input to the next layer.
     \end{block}
 \end{frame}
 
@@ -221,7 +228,7 @@
             \vdots                               \\[6pt]
             \frac{\partial J}{\partial \theta_n}
         \end{bmatrix}\]
-    These are partial derivatives with respect to each parameter. You'll learn about partial derivatives later in semester 2.
+    These are partial derivatives with respect to each parameter. You'll learn about partial derivatives later in semester 2. We need the chain rule to compute most of these derivatives. 
 \end{frame}
 
 \begin{frame}
@@ -231,16 +238,21 @@
         \centering
         \includegraphics[width=0.8\textwidth]{images/gradient-descent.png}
     \end{figure}
+    Each small step is the gradient being computed for a batch of examples from our training data. 
 \end{frame}
 
 \begin{frame}
     \frametitle{Summary}
     The maths we've seen being used:
     \begin{itemize}
-        \item Linear algebra
+        \item Matrix algebra
         \item Recurrence relations
-        \item Calculus
+        \item Functions
+        \item Partial differentiation
+        \item Chain rule
     \end{itemize}
+    \vspace{0.5cm}
+    These are all things you learn about in MATH199!
 \end{frame}
 
 % \begin{frame}
