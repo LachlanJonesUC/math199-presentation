@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{neuralnetwork}
+
+\begin{document}
+\begin{neuralnetwork}[nodespacing = 10mm, layerspacing = 25mm]
+    \newcommand{\x}[2]{\ifnum #2=0 1 \else \(x_#2\) \fi}
+    \newcommand{\h}[2]{\(\hat{y}\)}
+    \newcommand{\z}[2]{\ifnum #2=0 1 \else \(h_{#1, #2}\) \fi}
+
+    \inputlayer[count=2, bias=false, text=\x]{}
+    \hiddenlayer[count=4, bias=false, text=\z]{} \linklayers
+    \hiddenlayer[count=3, bias=false, text=\z]{} \linklayers
+    \outputlayer[count=1, text=\h]{} \linklayers
+\end{neuralnetwork}
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{neuralnetwork}
+
+\begin{document}
+\begin{neuralnetwork}[nodespacing = 10mm, layerspacing = 25mm]
+    \newcommand{\x}[2]{\ifnum #2=0 1 \else \(x_#2\) \fi}
+    \newcommand{\h}[2]{\(h\)}
+    \newcommand{\z}[2]{\(a\)}
+
+    \inputlayer[count=2, bias=true, text=\x]{}
+
+    \hiddenlayer[count=1, bias=false, text=\z]{}
+    \draw[->, thin, draw=black!45](L0-0) edge node[above right] {\(b\)} (L1-1);
+    \draw[->, thin, draw=black!45](L0-1) edge node[below left] {\(w_1\)} (L1-1);
+    \draw[->, thin, draw=black!45](L0-2) edge node[below right] {\(w_2\)} (L1-1);
+
+    \outputlayer[count=1, text=\h]{}
+    \draw[->, thin, draw=black!45](L1-1) edge node[above] {\(f(a)\)} (L2-1);
+\end{neuralnetwork}
+\end{document}
