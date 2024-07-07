@@ -121,22 +121,22 @@
         \caption{MLP network with two inputs and one hidden layer}
     \end{figure}
     \begin{block}{Remark}
-        We've tidied up our diagram to not have biases and activation functions, but they're still used in calculations.
+        We've tidied up our diagram to not show biases and activation functions, but they're still there and being used in calculations.
     \end{block}
 \end{frame}
 
 \begin{frame}
     \frametitle{MLP networks}
     Calculations:
-    \[a_{1} = w_{1, 1} \cdot x_1 + w_{1, 2} \cdot x_2 + b_{1}\]
-    \[a_{2} = w_{2, 1} \cdot x_1 + w_{2, 2} \cdot x_2 + b_{2}\]
-    \[a_{3} = w_{3, 1} \cdot x_1 + w_{3, 2} \cdot x_2 + b_{3}\] \pause
+    \[h_{1} = w_{1, 1} \cdot x_1 + w_{1, 2} \cdot x_2 + b_{1}\]
+    \[h_{2} = w_{2, 1} \cdot x_1 + w_{2, 2} \cdot x_2 + b_{2}\]
+    \[h_{3} = w_{3, 1} \cdot x_1 + w_{3, 2} \cdot x_2 + b_{3}\] \pause
     This is a typical system of equations, so we can tidy things up with matrix algebra: \pause
     \[
         \begin{bmatrix}
-            a_{1} \\
-            a_{2} \\
-            a_{3}
+            h_{1} \\
+            h_{2} \\
+            h_{3}
         \end{bmatrix}
         =
         \begin{bmatrix}
@@ -170,11 +170,14 @@
 
 \begin{frame}
     \frametitle{MLP networks}
-    Typically, we have many hidden layers in our network architecture.
-    \vspace{0.5cm}
-
+    Typically, architecture is much more complex.
+    % \vspace{0.5cm}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.4\textheight]{./figures/mlp/main.pdf}
+    \end{figure} \pause
     Generally:
-    \[\underline{h}_i = f(W_i \cdot \underline{h}_{i - 1} + \underline{b}_i)\] \pause
+    \[\underline{h}_i = f(W_i \cdot \underline{h}_{i - 1} + \underline{b}_i)\]
     \begin{block}{Remark}
         We can think of the network as a recurrence relation, passing the output of one hidden layer as the input to the next layer.
     \end{block}
@@ -231,22 +234,32 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Conclusion}
-    These are the foundational concepts that are used in advanced architecture:
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{images/vgg-architecture.png}
-    \end{figure}
-    While they may seem scary, neural networks are just algebra and calculus.
+    \frametitle{Summary}
+    The maths we've seen being used:
+    \begin{itemize}
+        \item Linear algebra
+        \item Recurrence relations
+        \item Calculus
+    \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Will AI take over?}
-    At the end of the day, neural networks are simply matching a trend to some data:
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.75\textheight]{./images/pikaso.me-angryfermion-20240413_132756-1779139460174676132.png}
-    \end{figure}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Conclusion}
+%     These are the foundational concepts that are used in advanced architecture:
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=0.7\textwidth]{images/vgg-architecture.png}
+%     \end{figure}
+%     While they may seem scary, neural networks are just algebra and calculus.
+% \end{frame}
+
+% \begin{frame}
+%     \frametitle{Core idea of AI}
+%     At the end of the day, neural networks are simply matching a trend to some data:
+%     \begin{figure}
+%         \centering
+%         \includegraphics[height=0.75\textheight]{./images/pikaso.me-angryfermion-20240413_132756-1779139460174676132.png}
+%     \end{figure}
+% \end{frame}
 
 \end{document}
