@@ -4,6 +4,8 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 
+\pgfplotsset{compat=1.18}
+
 \usetheme{Madrid}
 \usecolortheme{beaver}
 \setbeamertemplate{navigation symbols}{}
@@ -11,125 +13,14 @@
 \title{Mathematics in Deep Learning}
 \author{Lachlan Jones}
 \institute{MATH199}
-\date{2024 Mid-Year Workshop}
+\date{2025}
 
 \begin{document}
 
 \frame{\titlepage}
 
 \begin{frame}
-    \frametitle{A classification problem}
-    Let's build some networks to seperate this dataset of red and blue dots
-    \begin{figure}
-        \centering
-        \includegraphics{./figures/moons/main.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Simple perceptron networks}
-    Perceptrons are the building block of Neural Networks
-    \begin{figure}
-        \centering
-        \includegraphics{./figures/simple-perceptron/main.pdf}
-        \caption{Simple perceptron network with two inputs}
-    \end{figure} \pause
-    \begin{itemize}
-        \item \(a = w_1 \cdot x_1 + w_2 \cdot x_2 + b\) \pause
-        \item \(f\) is a \alert{non-linear activation function} \pause
-        \item the weights \(w_1\) and \(w_2\) and bias \(b\) are \alert{parameters}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Simple perceptron networks}
-    Limited to linear decision boundaries:
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.6\textheight]{figures/linear-boundary/main.pdf}
-        \caption{Simple perceptron decision boundary}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Non-linear activation functions}
-    Two examples:
-    \begin{figure}
-        \begin{subfigure}{0.45\textwidth}
-            \resizebox{\textwidth}{!}{
-                \begin{tikzpicture}
-                    \begin{axis}[
-                            % axis lines = left,
-                            axis x line=center,
-                            axis y line=center,
-                            xtick={-5,-4,...,5},
-                            ytick={0,0.2,...,1},
-                            tick label style={font=\footnotesize},
-                            xlabel = \(x\),
-                            ylabel = \(y\),
-                            xlabel style={below right},
-                            ylabel style={above left},
-                            xmin=-6, xmax=6,
-                            ymin=-0.1, ymax=1.1,
-                            legend pos = north west,
-                        ]
-                        \addplot[domain=-5:5, color=blue]{1/(1+exp(-x))};
-                        % \addlegendentry{\(\frac{1}{1 + e^{-x}}\)}
-                    \end{axis}
-                \end{tikzpicture}
-            }
-            \caption{Sigmoid function}
-            % \(sig(z) = \frac{1}{1 + e^{-z}}\)
-        \end{subfigure}\hfill
-        \begin{subfigure}{0.45\textwidth}
-            \resizebox{\textwidth}{!}{
-                \begin{tikzpicture}
-                    \begin{axis}[
-                            % axis lines = left,
-                            axis x line=center,
-                            axis y line=center,
-                            xtick={-1,-0.8,...,1},
-                            ytick={0,0.2,...,1},
-                            tick label style={font=\footnotesize},
-                            xlabel = \(x\),
-                            ylabel = \(y\),
-                            xlabel style={below right},
-                            ylabel style={above left},
-                            xmin=-1.1, xmax=1.1,
-                            ymin=-0.1, ymax=1.1,
-                            legend pos = north west,
-                        ]
-                        \addplot[domain=-5:0, color=red]{0};
-                        \addplot[domain=0:5, color=red]{x};
-                    \end{axis}
-                \end{tikzpicture}
-            }
-            \caption{Rectified linear unit}
-            % \(ReLU(x) = \begin{cases}
-            %     x & x >= 0 \\
-            %     0 & x < 0
-            % \end{cases}\)
-        \end{subfigure}
-        % \(\quad sig(z) = \frac{1}{1 + e^{-z}}\) \hfill \(ReLU(x) = \begin{cases}
-        %     x & x >= 0 \\
-        %     0 & x < 0
-        % \end{cases} \quad\)
-    \end{figure}
-    \begin{block}{Remark}
-        Deep learning doesn't work with out non-linear activation functions.
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{MLP networks}
-    \begin{itemize}
-        \item Multi-layered perceptron
-        \item Combine multiple perceptrons together into a large network
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{MLP networks}
+    \frametitle{Mathematics in Deep Learning}
     \begin{figure}
         \includegraphics{figures/basic-mlp/main.pdf}
         \caption{MLP network with two inputs and one hidden layer}
@@ -140,7 +31,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{MLP networks}
+    \frametitle{Mathematics in Deep Learning}
     \begin{minipage}{0.45\textwidth}
         Calculations:
         \[h_{1} = w_{1, 1} \cdot x_1 + w_{1, 2} \cdot x_2 + b_{1}\]
@@ -181,19 +72,10 @@
     \[\underline{h} = f(W \cdot \underline{x} + \underline{b})\]
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{MLP networks}
-%     Typically, architecture is much more complex:
-%     \begin{figure}
-%         \includegraphics{figures/mlp/main.pdf}
-%         \caption{MLP network with two inputs and two hidden layers of different sizes}
-%     \end{figure}
-% \end{frame}
-
 \begin{frame}
-    \frametitle{MLP networks}
+    \frametitle{Mathematics in Deep Learning}
     Typically, architecture is much more complex, with many hidden layers. This is what \alert{deep} learning is referring to.
-    % \vspace{0.5cm}
+
     \begin{figure}
         \centering
         \includegraphics[height=0.5\textheight]{./figures/mlp/main.pdf}
@@ -202,96 +84,24 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{MLP networks}
-    Generally:
-    \[\underline{h}_i = f(W_i \cdot \underline{h}_{i - 1} + \underline{b}_i)\]
-    \begin{block}{Remark}
-        We can think of deep neural networks as a recurrence relation, passing the output of one hidden layer as the input to the next layer.
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{MLP networks}
-    The combination of \alert{hidden layers} and \alert{non-linear activation functions} gives us a \alert{non-linear decision boundary}:
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.6\textheight]{figures/non-linear-boundary/main.pdf}
-        \caption{MLP decision boundary}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Training}
-    \begin{itemize}
-        \item Networks don't just magically start with great performance, we have to \alert{train} them on our dataset. \pause
-        \item \alert{Training} is achieved by updating our \alert{parameters}, the weights and biases. \pause
-        \item We achieve this using \alert{calculus}.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Training}
-    We define a \alert{loss function} that depends on the parameters:
-    \[J(\theta_1,... , \theta_n)\]
-    A loss function compares the error of a network's current prediction against human labelling of data.
+    \frametitle{Mathematics in Deep Learning}
+    With all these different edges, deep neural networks have the capacity to learn complex, non-linear relationships between input data (\(\underline{x}\)) and output label (\(\hat{y}\)). \pause
     \vspace{0.5cm}
 
-    We want to find a local minima of this function.
+    Suitable values for these edges need to be determined in a process called training, which uses an algorithm called gradient descent (very similar to \alert{Euler's Method}, i.e. using calculus). 
+
 \end{frame}
 
 \begin{frame}
-    \frametitle{Training}
-    We can compute the \alert{gradient} of the loss function, which tells us how to make small updates to our parameters:
-    \[\nabla J(\theta_1,... , \theta_n) = \begin{bmatrix}
-            \frac{\partial J}{\partial \theta_1} \\[6pt]
-            \frac{\partial J}{\partial \theta_2} \\[6pt]
-            \vdots                               \\[6pt]
-            \frac{\partial J}{\partial \theta_n}
-        \end{bmatrix}\]
-    These are partial derivatives with respect to each parameter. You'll learn about partial derivatives later in semester 2. We need the chain rule to compute most of these derivatives.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Training}
-    A great way to visualise this is walking down a mountain, the gradient tells us the steepest way down.
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.8\textwidth]{images/gradient-descent.png}
-    \end{figure}
-    Each small step is the gradient being computed for a batch of examples from our training data.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Summary}
-    The maths we've seen being used:
+    \frametitle{Mathematics in Deep Learning}
+    Some Examples:
     \begin{itemize}
-        \item Matrix algebra
-        \item Recurrence relations
-        \item Functions
-        \item Partial differentiation
-        \item Chain rule
+        \item Using measurements of chemical modifications to human DNA to predict lifetime smoking exposure - this is what my Master's thesis is on \pause
+        \item Teaching computers to recognise handwritten digits - \url{https://okdalto.github.io/VisualizeMNIST_web/} \pause
+        \item Predicting the most likely word to next appear in a sequence, aka large language models (ChatGPT) \pause
     \end{itemize}
-    \vspace{0.5cm}
-    These are all things you learn about in MATH199!
+
+    Each of these use the same connections we saw before, just arranged in different ways to form different \alert{architectures}.
 \end{frame}
-
-% \begin{frame}
-%     \frametitle{Conclusion}
-%     These are the foundational concepts that are used in advanced architecture:
-%     \begin{figure}
-%         \centering
-%         \includegraphics[width=0.7\textwidth]{images/vgg-architecture.png}
-%     \end{figure}
-%     While they may seem scary, neural networks are just algebra and calculus.
-% \end{frame}
-
-% \begin{frame}
-%     \frametitle{Core idea of AI}
-%     At the end of the day, neural networks are simply matching a trend to some data:
-%     \begin{figure}
-%         \centering
-%         \includegraphics[height=0.75\textheight]{./images/pikaso.me-angryfermion-20240413_132756-1779139460174676132.png}
-%     \end{figure}
-% \end{frame}
 
 \end{document}

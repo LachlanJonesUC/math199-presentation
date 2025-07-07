@@ -8,11 +8,11 @@
     \newcommand{\h}[2]{\(\hat{y}\)}
     \newcommand{\z}[2]{\ifnum #2=0 1 \else \(h_{#1, #2}\) \fi}
 
-    \inputlayer[count=5, bias=false, text=\x]{}
-    \hiddenlayer[count=6, bias=false, text=\z]{} \linklayers
-    \hiddenlayer[count=5, bias=false, text=\z]{} \linklayers
-    \hiddenlayer[count=4, bias=false, text=\z]{} \linklayers
-    \hiddenlayer[count=3, bias=false, text=\z]{} \linklayers
+    \inputlayer[count=6, bias=false, text=\x]{}
+    \hiddenlayer[count=10, bias=false, text=\z]{} \linklayers
+    \hiddenlayer[count=10, bias=false, text=\z]{} \linklayers
+    \hiddenlayer[count=10, bias=false, text=\z]{} \linklayers
+    \hiddenlayer[count=10, bias=false, text=\z]{} \linklayers
     \outputlayer[count=2, text=\h]{} \linklayers
 \end{neuralnetwork}
 \end{document}
